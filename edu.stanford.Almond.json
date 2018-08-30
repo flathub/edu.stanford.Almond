@@ -291,8 +291,8 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/Stanford-Mobisocial-IoT-Lab/almond-gnome",
-                    "tag" : "v1.0.0",
-                    "commit" : "4b13ca6d3744491141fd00c30a3808284edda58b"
+                    "tag" : "v1.1.0",
+                    "commit" : "f82280337c213cfcba19c91064c49ec8e8545d7c"
                 },
                 "yarn.json"
             ]
