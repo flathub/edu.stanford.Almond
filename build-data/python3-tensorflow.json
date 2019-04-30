@@ -2,7 +2,7 @@
     "name": "python3-tensorflow",
     "buildsystem": "simple",
     "build-commands": [
-        "pip3 install --no-index --no-build-isolation --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} tensorflow"
+        "pip3 install --no-index --no-build-isolation --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} tensorflow*.whl"
     ],
     "only-arches": ["x86_64", "arm"],
     "sources": [
