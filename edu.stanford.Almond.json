@@ -140,6 +140,13 @@
             "config-opts" : [
                 "--enable-cxx"
             ],
+            "build-options": {
+                "arch": {
+                    "i386": {
+                        "config-opts": ["ABI=32"]
+                    }
+                }
+            },
             "sources" : [
                 {
                     "type" : "archive",
