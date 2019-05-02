@@ -187,8 +187,9 @@
     },
     {
         "type": "file",
-        "url": "https://docs.python.org/2.7/_sources/license.rst.txt",
+        "path": "build-data/python27-license.rst.txt",
         "dest": "bazel-distdir",
+        "dest-filename": "license.rst.txt",
         "sha256": "7ca8f169368827781684f7f20876d17b4415bbc5cb28baa4ca4652f0dda05e9f"
     },
     {
