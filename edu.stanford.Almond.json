@@ -288,7 +288,8 @@
                     "dest-filename" : "autogen.sh",
                     "commands" : [
                         "rm -f ./config.guess ./config.sub",
-                        "AUTOMAKE=\"automake --foreign\" autoreconf -vfi"
+                        "AUTOMAKE=\"automake --foreign\" autoreconf -vfi",
+                        "automake --add-missing || true"
                     ]
                 }
             ]
