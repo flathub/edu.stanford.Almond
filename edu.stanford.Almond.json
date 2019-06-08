@@ -7,9 +7,6 @@
         "org.freedesktop.Sdk.Extension.openjdk8"
     ],
     "command" : "/app/bin/edu.stanford.Almond",
-    "tags" : [
-        "nightly"
-    ],
     "finish-args" : [
         "--share=ipc",
         "--socket=x11",
@@ -351,6 +348,7 @@
                 }
             ]
         },
+        "./build-data/python3-keras.json",
         {
             "name": "tensorflow",
             "buildsystem": "simple",
@@ -415,7 +413,9 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://github.com/stanford-oval/almond-gnome"
+                    "url" : "https://github.com/stanford-oval/almond-gnome",
+                    "tag": "v1.5.0",
+                    "commit": "75769f334b7093f7e186ee8f7d018005875a3fe3"
                 },
                 "../build-data/yarn.json"
             ]
