@@ -414,8 +414,8 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/stanford-oval/almond-gnome",
-                    "tag": "v1.5.0",
-                    "commit": "75769f334b7093f7e186ee8f7d018005875a3fe3"
+                    "tag": "v1.6.0",
+                    "commit": "83f0e1aa5ed2beba78b956b1a18b5950e417120b"
                 },
                 "../build-data/yarn.json"
             ]
