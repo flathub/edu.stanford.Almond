@@ -413,8 +413,10 @@
             "name" : "almond-gnome",
             "buildsystem" : "meson",
             "build-options" : {
+                "append-path": "/usr/lib/sdk/node10/bin",
+                "append-ld-library-path": "/usr/lib/sdk/node10/lib",
                 "env" : {
-                    "npm_config_nodedir" : "/app"
+                    "npm_config_nodedir" : "/usr/lib/sdk/node10"
                 }
             },
             "sources" : [
