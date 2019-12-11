@@ -269,7 +269,8 @@
                     "type" : "script",
                     "dest-filename" : "autogen.sh",
                     "commands" : [
-                        "AUTOMAKE=\"automake --foreign\" autoreconf -vfi"
+                        "AUTOMAKE=\"automake --foreign\" autoreconf -vfi",
+                        "cp /usr/share/automake-1.16/{config.guess,config.sub} ."
                     ]
                 }
             ]
