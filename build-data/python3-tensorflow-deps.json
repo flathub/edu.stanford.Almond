@@ -27,11 +27,6 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/b7/cf/1ea0f5b3ce55cacde1e84cdde6cee1ebaff51bd9a3e6c7ba4082199af6f6/wheel-0.33.1.tar.gz",
-            "sha256": "66a8fd76f28977bb664b098372daef2b27f60dc4d1688cfab7b37a09448f0e9d"
-        },
-        {
-            "type": "file",
             "url": "https://files.pythonhosted.org/packages/4e/35/11749bf99b2d4e3cceb4d55ca22590b0d7c2c62b9de38ac4a4a7f4687421/gast-0.2.2.tar.gz",
             "sha256": "fe939df4583692f0512161ec1c880e0a10e71e6a232da045ab8edd3756fbadf0"
         },
