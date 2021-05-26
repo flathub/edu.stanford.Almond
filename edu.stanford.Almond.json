@@ -1,11 +1,10 @@
 {
     "app-id" : "edu.stanford.Almond",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "3.34",
+    "runtime-version" : "3.38",
     "sdk" : "org.gnome.Sdk",
     "sdk-extensions" : [
-        "org.freedesktop.Sdk.Extension.openjdk11",
-        "org.freedesktop.Sdk.Extension.node10"
+        "org.freedesktop.Sdk.Extension.node12"
     ],
     "command" : "/app/bin/edu.stanford.Almond",
     "finish-args" : [
@@ -18,11 +17,11 @@
         "--filesystem=host",
         "--talk-name=ca.desrt.dconf",
         "--system-talk-name=org.bluez",
-        "--system-talk-name=org.freedesktop.login1",
         "--talk-name=org.gtk.vfs.*",
         "--talk-name=org.gnome.SessionManager",
         "--talk-name=org.gnome.Shell",
         "--talk-name=org.gnome.Shell.Screenshot",
+        "--talk-name=org.gnome.ScreenSaver",
         "--talk-name=org.freedesktop.secrets",
         "--talk-name=org.freedesktop.Flatpak",
         "--talk-name=org.freedesktop.Notifications"
@@ -81,145 +80,17 @@
             ]
         },
         {
-            "name" : "libantlr3",
-            "config-opts" : [
-                "--disable-static",
-                "--enable-shared",
-                "--disable-antlrdebug",
-                "--with-pic"
-            ],
-            "rm-configure" : true,
-            "build-options" : {
-                "arch" : {
-                    "x86_64" : {
-                        "config-opts" : [
-                            "--enable-64bit",
-                            "--disable-static",
-                            "--enable-shared",
-                            "--disable-antlrdebug",
-                            "--with-pic"
-                        ]
-                    },
-                    "aarch64" : {
-                        "config-opts" : [
-                            "--enable-64bit",
-                            "--disable-abiflags",
-                            "--disable-static",
-                            "--enable-shared",
-                            "--disable-antlrdebug",
-                            "--with-pic"
-                        ]
-                    },
-                    "arm" : {
-                        "config-opts" : [
-                            "--disable-abiflags",
-                            "--disable-static",
-                            "--enable-shared",
-                            "--disable-antlrdebug",
-                            "--with-pic"
-                        ]
-                    }
-                }
-            },
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "http://www.antlr3.org/download/C/libantlr3c-3.4.tar.gz",
-                    "sha256" : "ca914a97f1a2d2f2c8e1fca12d3df65310ff0286d35c48b7ae5f11dcc8b2eb52"
-                },
-                {
-                    "type" : "script",
-                    "dest-filename" : "autogen.sh",
-                    "commands" : [
-                        "AUTOMAKE=\"automake --foreign\" autoreconf -vfi"
-                    ]
-                }
-            ]
-        },
-        {
-            "name" : "gmp",
-            "config-opts" : [
-                "--enable-cxx"
-            ],
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz",
-                    "sha256" : "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
-                }
-            ]
-        },
-        {
-            "name" : "antlr3",
-            "buildsystem" : "simple",
-            "build-commands" : [
-                "install -m 0644 -D antlr-3.4-complete.jar /app/share/java/antlr-3.4-complete.jar",
-                "install -m 0755 -D antlr3 /app/bin/antlr3"
-            ],
-            "sources" : [
-                {
-                    "type" : "file",
-                    "url" : "https://www.antlr3.org/download/antlr-3.4-complete.jar",
-                    "sha256" : "9d3e866b610460664522520f73b81777b5626fb0a282a5952b9800b751550bf7"
-                },
-                {
-                    "type" : "script",
-                    "dest-filename" : "antlr3",
-                    "commands" : [
-                        "export CLASSPATH=/app/share/java/antlr-3.4-complete.jar:$CLASSPATH",
-                        "exec /usr/lib/sdk/openjdk11/jvm/openjdk-11/bin/java org.antlr.Tool \"$@\""
-                    ]
-                }
-            ]
-        },
-        {
-            "name" : "cvc4",
-            "buildsystem" : "cmake",
-            "config-opts" : [
-                "-DCMAKE_BUILD_TYPE=Production",
-                "-DENABLE_OPTIMIZED=ON",
-                "-DUSE_CLN=OFF",
-                "-DUSE_READLINE=OFF",
-                "-DENABLE_GPL=OFF",
-                "-DENABLE_PORTFOLIO=OFF",
-                "-DJAVA_HOME=/usr/lib/sdk/openjdk11/jvm/openjdk-11"
-            ],
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "https://github.com/CVC4/CVC4/archive/1.7.tar.gz",
-                    "sha256" : "9864a364a0076ef7ff63a46cdbc69cbe6568604149626338598d4df7788f8c2e"
-                }
-            ]
-        },
-        {
             "name" : "node",
             "buildsystem" : "simple",
             "build-commands" : [
-                "install -Dm 755 /usr/lib/sdk/node10/bin/node /app/bin/node",
-                "ln -s /usr/lib/sdk/node10/bin/python2 /app/bin/python2",
-                "ln -sT /usr/lib/sdk/node10/lib/node_modules /app/lib/node_modules"
-            ]
-        },
-        {
-            "name" : "yarn",
-            "buildsystem" : "simple",
-            "build-commands" : [
-                "cp -r . /app/lib/yarn",
-                "ln -s /app/lib/yarn/bin/yarn /app/bin/yarn"
-            ],
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "https://github.com/yarnpkg/yarn/releases/download/v1.22.4/yarn-v1.22.4.tar.gz",
-                    "sha256" : "bc5316aa110b2f564a71a3d6e235be55b98714660870c5b6b2d2d3f12587fb58"
-                }
+                "install -Dm 755 /usr/lib/sdk/node12/bin/node /app/bin/node",
+                "ln -s /usr/lib/sdk/node12/bin/python2 /app/bin/python2",
+                "ln -sT /usr/lib/sdk/node12/lib/node_modules /app/lib/node_modules"
             ]
         },
         {
             "name" : "tcl",
-            "config-opts" : [
-            ],
+            "config-opts" : [],
             "post-install" : [
                 "chmod u+w /app/lib/libtcl8.6.so"
             ],
@@ -251,8 +122,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://github.com/sqlcipher/sqlcipher/archive/v4.3.0.tar.gz",
-                    "sha256" : "fccb37e440ada898902b294d02cde7af9e8706b185d77ed9f6f4d5b18b4c305f"
+                    "url" : "https://github.com/sqlcipher/sqlcipher/archive/v4.4.0.tar.gz",
+                    "sha256" : "0924b2ae1079717954498bda78a30de20ce2a6083076b16214a711567821d148"
                 },
                 {
                     "type" : "script",
@@ -265,24 +136,34 @@
         },
         {
             "name" : "intltool",
-            "sources": [
+            "sources" : [
                 {
                     "type" : "archive",
                     "url" : "http://edge.launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz",
                     "sha256" : "67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
                 }
             ],
-            "cleanup": [
+            "cleanup" : [
                 "/*"
             ]
         },
         {
             "name" : "sound-theme-freedesktop",
-            "sources": [
+            "sources" : [
                 {
                     "type" : "archive",
                     "url" : "http://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2",
-                    "sha256": "cb518b20eef05ec2e82dda1fa89a292c1760dc023aba91b8aa69bafac85e8a14"
+                    "sha256" : "cb518b20eef05ec2e82dda1fa89a292c1760dc023aba91b8aa69bafac85e8a14"
+                }
+            ]
+        },
+        {
+            "name" : "libcanberra",
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz",
+                    "sha256" : "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
                 }
             ]
         },
@@ -291,29 +172,29 @@
             "buildsystem" : "meson",
             "build-options" : {
                 "env" : {
-                    "npm_config_nodedir" : "/usr/lib/sdk/node10",
-                    "LDFLAGS": "-L/app/lib -Wl,-z,relro,-z,now -Wl,--no-as-needed"
-                },
-                "append-path": "/usr/lib/sdk/node10/bin"
+                    "LDFLAGS" : "-L/app/lib -Wl,-z,relro,-z,now -Wl,--no-as-needed"
+                }
             },
             "sources" : [
                 {
                     "type" : "git",
                     "url" : "https://github.com/stanford-oval/almond-gnome",
-                    "tag" : "v1.8.0",
-                    "commit" : "cabc53a12cdef62886b3e6381d1d715aaf138eed"
+                    "tag" : "v2.0.0",
+                    "commit" : "93ffc40adf6dee877f9826d4df26f66a2f943466"
                 },
-                "build-data/yarn.json"
+                "build-data/npm.json"
             ]
         }
     ],
     "build-options" : {
         "env" : {
+            "npm_config_nodedir" : "/usr/lib/sdk/node12",
             "npm_config_build_from_source" : "true",
             "npm_config_sqlite" : "/app",
             "npm_config_sqlite_libname" : "sqlcipher",
-            "PYTHONDONTWRITEBYTECODE" : "1",
+            "NPM" : "/usr/lib/sdk/node12/bin/npm",
             "ALMOND_SPAWN_SERVICE_MANUALLY" : "1"
-        }
+        },
+        "append-path" : "/usr/lib/sdk/node12/bin"
     }
 }
