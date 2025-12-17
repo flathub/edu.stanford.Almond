@@ -15,7 +15,6 @@
         "--share=network",
         "--device=dri",
         "--filesystem=host",
-        "--talk-name=ca.desrt.dconf",
         "--system-talk-name=org.bluez",
         "--talk-name=org.gtk.vfs.*",
         "--filesystem=xdg-run/gvfsd",
