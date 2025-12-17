@@ -170,6 +170,10 @@
                     "tag" : "v2.0.0",
                     "commit" : "93ffc40adf6dee877f9826d4df26f66a2f943466"
                 },
+                {
+                    "type" : "patch",
+                    "path" : "fix_appdata.patch"
+                },
                 "build-data/npm.json"
             ]
         }
