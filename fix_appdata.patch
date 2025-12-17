@@ -1,0 +1,52 @@
+From 3694322988af1e7a7b7fbb0ccd1e17cc9d32c3e0 Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <161761531+yakushabb@users.noreply.github.com>
+Date: Wed, 17 Dec 2025 22:20:19 +0300
+Subject: [PATCH] Fix appdata papercuts
+
+---
+ data/edu.stanford.Almond.appdata.xml.in | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/data/edu.stanford.Almond.appdata.xml.in b/data/edu.stanford.Almond.appdata.xml.in
+index da4548f..8369765 100644
+--- a/data/edu.stanford.Almond.appdata.xml.in
++++ b/data/edu.stanford.Almond.appdata.xml.in
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!-- Copyright 2019 The Board of Trustees of the Leland Stanford Junior University -->
+-<component type="desktop">
++<component type="desktop-application">
+   <id>edu.stanford.Almond.desktop</id>
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>Apache-2.0</project_license>
+@@ -23,21 +23,22 @@
+   <translation type="gettext">edu.stanford.Almond</translation>
+   <screenshots>
+     <screenshot type="default">
+-      <image height="527" width="640">https://flatpak.almond.stanford.edu/screenshot-main.png</image>
++      <image height="527" width="640">https://dl.flathub.org/repo/screenshots/edu.stanford.Almond-stable/752x423/edu.stanford.Almond-7130ae1064318afbf495989f3f12ad36.webp</image>
+     </screenshot>
+     <screenshot>
+-      <image height="1232" width="1720">https://flatpak.almond.stanford.edu/screenshot-xkcd.png</image>
++      <image height="1232" width="1720">https://dl.flathub.org/repo/screenshots/edu.stanford.Almond-stable/1504x846/edu.stanford.Almond-72792bd94cf16b1d6932b04ec5a954a6.webp</image>
+     </screenshot>
+     <screenshot>
+-      <image height="1072" width="1800">https://flatpak.almond.stanford.edu/screenshot-nytimes.png</image>
++      <image height="1072" width="1800">https://dl.flathub.org/repo/screenshots/edu.stanford.Almond-stable/1504x846/edu.stanford.Almond-0b17e6d47b4e44675358418b11616629.webp</image>
+     </screenshot>
+     <screenshot>
+-      <image height="1158" width="1800">https://flatpak.almond.stanford.edu/screenshot-my-goods.png</image>
++      <image height="1158" width="1800">https://dl.flathub.org/repo/screenshots/edu.stanford.Almond-stable/1504x846/edu.stanford.Almond-335cc4780d66fb69bcd3fe46f216c219.webp</image>
+     </screenshot>
+     <screenshot>
+-      <image height="1166" width="1984">https://flatpak.almond.stanford.edu/screenshot-my-rules.png</image>
++      <image height="1166" width="1984">https://dl.flathub.org/repo/screenshots/edu.stanford.Almond-stable/1504x846/edu.stanford.Almond-e2b303cb114a70c21f3f6d72a55c5635.webp</image>
+     </screenshot>
+   </screenshots>
++  <launchable type="desktop-id">edu.stanford.Almond.desktop</launchable>
+   <url type="homepage">https://almond.stanford.edu</url>
+   <url type="bugtracker">https://github.com/stanford-oval/almond-gnome/issues</url>
+   <!--<url type="donation">http://www.homepage.com/donation.html</url>-->
+--
+libgit2 1.7.2
+

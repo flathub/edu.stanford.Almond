@@ -15,7 +15,6 @@
         "--share=network",
         "--device=dri",
         "--filesystem=host",
-        "--talk-name=ca.desrt.dconf",
         "--system-talk-name=org.bluez",
         "--talk-name=org.gtk.vfs.*",
         "--filesystem=xdg-run/gvfsd",
@@ -135,19 +134,7 @@
                 }
             ]
         },
-        {
-            "name" : "intltool",
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "http://edge.launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz",
-                    "sha256" : "67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
-                }
-            ],
-            "cleanup" : [
-                "/*"
-            ]
-        },
+        "shared-modules/intltool/intltool-0.51.json",
         {
             "name" : "sound-theme-freedesktop",
             "sources" : [
@@ -182,6 +169,10 @@
                     "url" : "https://github.com/stanford-oval/almond-gnome",
                     "tag" : "v2.0.0",
                     "commit" : "93ffc40adf6dee877f9826d4df26f66a2f943466"
+                },
+                {
+                    "type" : "patch",
+                    "path" : "fix_appdata.patch"
                 },
                 "build-data/npm.json"
             ]
